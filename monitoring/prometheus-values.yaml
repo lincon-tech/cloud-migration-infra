@@ -1,0 +1,10 @@
+server:
+  persistentVolume:
+    enabled: true
+    size: 10Gi
+
+alertmanager:
+  enabled: true
+
+service:
+  type: LoadBalancer
