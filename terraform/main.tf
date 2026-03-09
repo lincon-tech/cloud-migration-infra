@@ -48,16 +48,16 @@ module "vpc" {
   
   # Tags required for EKS
   tags = {
-    "kubernetes.io/cluster/migration-eks" = "shared"
+    "kubernetes.io/cluster/migration-eks-cluster" = "shared"
   }
   
   public_subnet_tags = {
-    "kubernetes.io/cluster/migration-eks" = "shared"
+    "kubernetes.io/cluster/migration-eks-cluster" = "shared"
     "kubernetes.io/role/elb"                     = "1"
   }
   
   private_subnet_tags = {
-    "kubernetes.io/cluster/migration-eks" = "shared"
+    "kubernetes.io/cluster/migration-eks-cluster" = "shared"
     "kubernetes.io/role/internal-elb"            = "1"
   }
 }
@@ -66,7 +66,7 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "19.21.0"
   
-  cluster_name    = "migration-eks"
+  cluster_name    = "migration-eks-cluster"
   cluster_version = "1.35"
   
   vpc_id                         = module.vpc.vpc_id
@@ -91,7 +91,7 @@ module "eks" {
   
   eks_managed_node_groups = {
     dev = {
-      name           = "dev-nodes"
+      name           = "migration-nodes"
       instance_types = ["t3.medium"]
       
       min_size     = 1
@@ -99,7 +99,7 @@ module "eks" {
       desired_size = 2
       
       # Use the latest EKS optimized AMI
-      ami_type = "AL2_x86_64"
+      ami_type = "AL2023_x86_64_STANDARD"              #"AL2_x86_64"
       
       # Disk configuration
       disk_size = 20
@@ -119,7 +119,7 @@ module "eks" {
       taints = {}
       
       tags = {
-        ExtraTag = "dev-nodes"
+        ExtraTag = "migration-nodes"
       }
     }
   }
