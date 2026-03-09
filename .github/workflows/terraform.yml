@@ -67,3 +67,20 @@ jobs:
       run: |
         cd terraform
         terraform destroy -auto-approve
+
+    - name: Configure kubectl
+      run: |
+        aws eks update-kubeconfig \
+        --region us-east-1 \
+        --name migration-eks-cluster
+
+    - name: Install Monitoring
+      run: |
+         chmod +x ./helm/grafana.sh
+         ./helm/grafana.sh
+         chmod +x ./helm/prometheus.sh
+         ./helm/prometheus.sh
+
+    - name: Deploy to Kubernetes
+      run: |
+        kubectl apply -f monitoring/
