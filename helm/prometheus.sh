@@ -6,4 +6,5 @@ helm repo update
 
 helm install prometheus prometheus-community/prometheus \
 -f monitoring/prometheus-values.yaml \
--n monitoring
+-n monitoring \
+--create-namespace

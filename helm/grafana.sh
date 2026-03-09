@@ -7,4 +7,5 @@ helm repo update
 
 helm install grafana grafana/grafana \
 -f monitoring/grafana-values.yaml \
--n monitoring 
+-n monitoring \
+--create-namespace
