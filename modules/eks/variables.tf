@@ -1,6 +1,9 @@
 variable "cluster_name" {}
 
-variable "subnet_ids" {}
+variable "subnet_ids" {
+  "subnet-0a123456789abc",
+  "subnet-0b987654321def"
+}
 
 variable "vpc_id" {}
 
@@ -21,6 +24,7 @@ variable "max_size" {
   type        = number
   default     = 4
 }
+
 variable "min_size" {
   description = "Minimum number of worker nodes"
   type        = number
