@@ -11,19 +11,6 @@ terraform {
       version = "~> 5.0"
     }
 
-    terraform {
-
-  backend "s3" {
-
-    bucket         = "terraform-eks-state-migproject"
-    key            = "eks/terraform.tfstate"
-    region         = "us-east-1"
-    #dynamodb_table = "terraform-lock-table"
-
-    encrypt = true
-  }
-}
-
     helm = {
       source = "hashicorp/helm"
       version = "2.12.1"
