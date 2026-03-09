@@ -83,4 +83,5 @@ jobs:
 
     - name: Deploy to Kubernetes
       run: |
-        kubectl apply -f monitoring/.
+        kubectl apply -f grafana-value.yaml
+        kubectl apply -f prometheus-value.yaml
