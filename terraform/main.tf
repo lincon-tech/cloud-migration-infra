@@ -64,10 +64,10 @@ module "vpc" {
 
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
-  version = "~> 21.0"         #"19.21.0"
+  version = "19.21.0"
   
   cluster_name    = "migration-eks-cluster"
-  cluster_version = "1.35"
+  cluster_version = "1.32"
   
   vpc_id                         = module.vpc.vpc_id
   subnet_ids                     = module.vpc.private_subnets
@@ -99,12 +99,10 @@ module "eks" {
       desired_size = 2
       
       # Use the latest EKS optimized AMI
-      ami_type = "AL2023_x86_64_STANDARD"      #"AL2_x86_64"
+      ami_type = "AL2_x86_64"
       
       # Disk configuration
       disk_size = 20
-
-      capacity_type = "ON_DEMAND"
       
       # Update configuration
       update_config = {
