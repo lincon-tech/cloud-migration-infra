@@ -1,9 +1,10 @@
 variable "cluster_name" {}
 
 variable "subnet_ids" {
-  "subnet-0a123456789abc",
-  "subnet-0b987654321def"
+  description = "List of subnet IDs for EKS"
+  type        = list(string)
 }
+ 
 
 variable "vpc_id" {}
 

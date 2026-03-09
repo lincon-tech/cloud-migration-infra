@@ -1,0 +1,1 @@
+ subnet_ids = ["subnet-0a123456789abc", "subnet-0b987654321def"]
