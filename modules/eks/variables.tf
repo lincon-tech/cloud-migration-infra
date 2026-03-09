@@ -21,13 +21,6 @@ variable "max_size" {
   type        = number
   default     = 4
 }
-
-# variable "min_size" {
-#   description = "Mimum number of worker nodes"
-#   type        = number
-#   default     = 2
-# }
-
 variable "min_size" {
   description = "Minimum number of worker nodes"
   type        = number
