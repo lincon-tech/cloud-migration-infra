@@ -9,3 +9,7 @@ variable "vpc_cidr" {
 variable "cluster_name" {
   default = "migration-eks-cluster"
 }
+
+variable "subnet_ids" {}
+
+variable "vpc_id" {}
