@@ -5,7 +5,7 @@ variable "subnet_ids" {
   type        = list(string)
 }
  
-
+ 
 variable "vpc_id" {}
 
 variable "node_instance_type" {

@@ -10,7 +10,9 @@ terraform {
 module "vpc" {
   source = "../modules/vpc"
 
-  vpc_cidr = var.vpc_cidr
+  vpc_cidr           = var.vpc_cidr
+  private_subnets    = var.private_subnets
+  availability_zones = var.availability_zones
 }
 
 module "eks" {
