@@ -1,3 +1,12 @@
+terraform {
+  backend "s3" {
+    bucket         = "terraform-eks-state-123456"
+    key            = "eks/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "terraform-lock"
+  }
+}
+
 module "vpc" {
   source = "../modules/vpc"
 
