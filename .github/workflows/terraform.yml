@@ -74,14 +74,16 @@ jobs:
         --region us-east-1 \
         --name migration-eks-cluster
 
+    - name: Install Helm
+      run: |
+         curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
     - name: Install Monitoring
       run: |
          chmod +x ./helm/grafana.sh
          ./helm/grafana.sh
+
          chmod +x ./helm/prometheus.sh
          ./helm/prometheus.sh
 
-    - name: Deploy to Kubernetes
-      run: |
-        kubectl apply -f monitoring/grafana-value.yaml
-        kubectl apply -f monitoring/prometheus-value.yaml
+    

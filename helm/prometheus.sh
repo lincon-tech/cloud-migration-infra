@@ -5,4 +5,5 @@ helm repo add prometheus-community https://prometheus-community.github.io/helm-c
 helm repo update
 
 helm install prometheus prometheus-community/prometheus \
--f ../monitoring/prometheus-values.yaml
+-f ../monitoring/prometheus-values.yaml \
+-n monitoring
