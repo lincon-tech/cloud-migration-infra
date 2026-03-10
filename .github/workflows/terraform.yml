@@ -80,10 +80,7 @@ jobs:
 
     - name: Install Monitoring
       run: |
-         chmod +x ./helm/grafana.sh
-         ./helm/grafana.sh
-
-         chmod +x ./helm/prometheus.sh
-         ./helm/prometheus.sh
+        chmod +x ./helm/prometheus.sh
+        ./helm/prometheus.sh
 
     
